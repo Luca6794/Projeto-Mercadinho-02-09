@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "nome": "Arroz Tio João 5kg",
+    "categoria": "Grãos e Cereais",
+    "preco": 12.99,
+    "quantidade": 45,
+    "codigo": "ARR001",
+    "dataAtualizacao": "2025-01-02T22:56:00.000Z"
+  },
+  {
+    "id": 2,
+    "nome": "Feijão Carioca 1kg",
+    "categoria": "Grãos e Cereais",
+    "preco": 12,
+    "quantidade": 10,
+    "codigo": "FEI001",
+    "dataAtualizacao": "2025-09-02T20:05:55.056Z"
+  },
+  {
+    "id": 4,
+    "nome": "Óleo de Soja 900ml",
+    "categoria": "Óleos e Vinagres",
+    "preco": 999,
+    "quantidade": 1,
+    "codigo": "OLE001",
+    "dataAtualizacao": "2025-09-02T20:05:48.703Z"
+  },
+  {
+    "id": 5,
+    "nome": "Cachorro 1k",
+    "categoria": "Carnes e Aves",
+    "preco": 1.99,
+    "quantidade": 48,
+    "codigo": "CAC001",
+    "dataAtualizacao": "2025-09-02T20:10:04.030Z"
+  },
+  {
+    "id": 6,
+    "nome": "Cerebro Humano 1k",
+    "categoria": "Carnes e Aves",
+    "preco": 10,
+    "quantidade": 0,
+    "codigo": "HUM001",
+    "dataAtualizacao": "2025-09-04T17:05:37.620Z"
+  },
+  {
+    "id": 7,
+    "nome": "Chocolate suspeito 300gm",
+    "categoria": "Doces e Adoçantes",
+    "preco": 4,
+    "quantidade": 20,
+    "codigo": "CHO001",
+    "dataAtualizacao": "2025-09-02T20:09:58.799Z"
+  },
+  {
+    "id": 8,
+    "nome": "Roblox 1k",
+    "categoria": "Carnes e Aves",
+    "preco": 59.99,
+    "quantidade": 8,
+    "codigo": "ROB001",
+    "dataAtualizacao": "2025-09-04T16:56:55.505Z"
+  },
+  {
+    "id": 9,
+    "nome": "Ácido sulfúrico 300ml",
+    "categoria": "Limpeza",
+    "preco": 8.49,
+    "quantidade": 16,
+    "codigo": "ACI001",
+    "dataAtualizacao": "2025-09-04T17:04:47.856Z"
+  }
+]
