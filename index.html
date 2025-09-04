@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestorMercado - Sistema de Controle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <h1>🏪 GestorMercado</h1>
+                    <p>Sistema de Controle</p>
+                </div>
+                <div class="actions">
+                    <span id="contador-produtos" class="contador">0 produtos</span>
+                    <button id="btn-novo-produto" class="btn btn-primary">+ Novo Produto</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="filtros">
+                <div class="busca">
+                    <input type="text" id="busca-produto" placeholder="Buscar produtos..." class="input-busca">
+                </div>
+                <div class="filtro-status">
+                    <select id="filtro-estoque" class="select-filtro">
+                        <option value="todos">Todos os produtos</option>
+                        <option value="em-estoque">Em estoque</option>
+                        <option value="estoque-baixo">Estoque baixo</option>
+                        <option value="sem-estoque">Sem estoque</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="lista-produtos" class="produtos-grid">
+                <!-- Produtos serão listados aqui -->
+            </div>
+
+            <div id="estado-vazio" class="estado-vazio" style="display: none;">
+                <div class="icone-vazio">🏪</div>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Comece adicionando seu primeiro produto ao estoque.</p>
+                <button id="btn-primeiro-produto" class="btn btn-primary">Adicionar Produto</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal para adicionar/editar produto -->
+    <div id="modal-produto" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-titulo">Adicionar Novo Produto</h2>
+                <button id="btn-fechar-modal" class="btn-fechar">&times;</button>
+            </div>
+            <form id="form-produto">
+                <div class="form-group">
+                    <label for="nome-produto">Nome do Produto</label>
+                    <input type="text" id="nome-produto" name="nome" required placeholder="Ex: Arroz Branco 5kg">
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria-produto">Categoria</label>
+                    <select id="categoria-produto" name="categoria" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Grãos e Cereais">Grãos e Cereais</option>
+                        <option value="Doces e Adoçantes">Doces e Adoçantes</option>
+                        <option value="Óleos e Vinagres">Óleos e Vinagres</option>
+                        <option value="Carnes e Aves">Carnes e Aves</option>
+                        <option value="Laticínios">Laticínios</option>
+                        <option value="Bebidas">Bebidas</option>
+                        <option value="Limpeza">Limpeza</option>
+                        <option value="Higiene">Higiene</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="preco-produto">Preço (R$)</label>
+                        <input type="number" id="preco-produto" name="preco" step="0.01" min="0" required placeholder="0,00">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantidade-produto">Quantidade</label>
+                        <input type="number" id="quantidade-produto" name="quantidade" min="0" required placeholder="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="codigo-produto">Código do Produto</label>
+                    <input type="text" id="codigo-produto" name="codigo" required placeholder="Ex: ARR001">
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" id="btn-cancelar" class="btn btn-secondary">Cancelar</button>
+                    <button type="submit" id="btn-salvar" class="btn btn-primary">Adicionar Produto</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de confirmação de exclusão -->
+    <div id="modal-confirmar-exclusao" class="modal" style="display: none;">
+        <div class="modal-content modal-small">
+            <div class="confirmacao-exclusao">
+                <div class="icone-alerta">⚠️</div>
+                <h3>Confirmar Exclusão</h3>
+                <p>Tem certeza que deseja excluir <strong id="nome-produto-exclusao"></strong>? Esta ação não pode ser desfeita.</p>
+                <div class="form-actions">
+                    <button id="btn-cancelar-exclusao" class="btn btn-secondary">Cancelar</button>
+                    <button id="btn-confirmar-exclusao" class="btn btn-danger">Excluir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
