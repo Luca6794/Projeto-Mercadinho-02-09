@@ -1,21 +1,17 @@
-// Variáveis globais
 let produtos = [];
 let produtoEditando = null;
 let produtoParaDeletar = null;
 
-// Elementos do DOM
 const listaProdutos = document.getElementById('lista-produtos');
 const contadorProdutos = document.getElementById('contador-produtos');
 const estadoVazio = document.getElementById('estado-vazio');
 const buscaProduto = document.getElementById('busca-produto');
 const filtroEstoque = document.getElementById('filtro-estoque');
 
-// Modais
 const modalProduto = document.getElementById('modal-produto');
 const modalConfirmarExclusao = document.getElementById('modal-confirmar-exclusao');
 const formProduto = document.getElementById('form-produto');
 
-// Botões
 const btnNovoProduto = document.getElementById('btn-novo-produto');
 const btnPrimeiroProduto = document.getElementById('btn-primeiro-produto');
 const btnFecharModal = document.getElementById('btn-fechar-modal');
@@ -23,12 +19,9 @@ const btnCancelar = document.getElementById('btn-cancelar');
 const btnSalvar = document.getElementById('btn-salvar');
 const modalTitulo = document.getElementById('modal-titulo');
 
-// Modal de exclusão
 const btnCancelarExclusao = document.getElementById('btn-cancelar-exclusao');
 const btnConfirmarExclusao = document.getElementById('btn-confirmar-exclusao');
 const nomeProdutoExclusao = document.getElementById('nome-produto-exclusao');
-
-// Event listeners
 btnNovoProduto.addEventListener('click', () => abrirModalProduto());
 btnPrimeiroProduto.addEventListener('click', () => abrirModalProduto());
 btnFecharModal.addEventListener('click', fecharModalProduto);
@@ -40,7 +33,6 @@ formProduto.addEventListener('submit', salvarProduto);
 buscaProduto.addEventListener('input', filtrarProdutos);
 filtroEstoque.addEventListener('change', filtrarProdutos);
 
-// Fechar modal clicando fora
 modalProduto.addEventListener('click', (e) => {
     if (e.target === modalProduto) fecharModalProduto();
 });
@@ -49,7 +41,6 @@ modalConfirmarExclusao.addEventListener('click', (e) => {
     if (e.target === modalConfirmarExclusao) fecharModalExclusao();
 });
 
-// Funções principais
 async function listarProdutos() {
     try {
         mostrarLoading();
@@ -155,13 +146,11 @@ function filtrarProdutosPorBusca() {
     const filtroSelecionado = filtroEstoque.value;
     
     return produtos.filter(produto => {
-        // Filtro por busca
         const correspondeBusca = 
             produto.nome.toLowerCase().includes(termoBusca) ||
             produto.categoria.toLowerCase().includes(termoBusca) ||
             produto.codigo.toLowerCase().includes(termoBusca);
         
-        // Filtro por estoque
         let correspondeEstoque = true;
         switch (filtroSelecionado) {
             case 'em-estoque':
@@ -173,7 +162,7 @@ function filtrarProdutosPorBusca() {
             case 'sem-estoque':
                 correspondeEstoque = produto.quantidade === 0;
                 break;
-            default: // 'todos'
+            default:
                 correspondeEstoque = true;
         }
         
@@ -185,7 +174,6 @@ function atualizarContador() {
     contadorProdutos.textContent = `${produtos.length} produtos`;
 }
 
-// Funções do modal
 function abrirModalProduto(produto = null) {
     produtoEditando = produto;
     
@@ -316,7 +304,6 @@ async function confirmarExclusao() {
     }
 }
 
-// Funções utilitárias
 function mostrarLoading() {
     listaProdutos.innerHTML = `
         <div class="loading">
@@ -326,7 +313,6 @@ function mostrarLoading() {
 }
 
 function mostrarSucesso(mensagem) {
-    // Implementação simples de notificação
     const alerta = document.createElement('div');
     alerta.style.cssText = `
         position: fixed;
@@ -349,7 +335,6 @@ function mostrarSucesso(mensagem) {
 }
 
 function mostrarErro(mensagem) {
-    // Implementação simples de notificação de erro
     const alerta = document.createElement('div');
     alerta.style.cssText = `
         position: fixed;
@@ -371,7 +356,6 @@ function mostrarErro(mensagem) {
     }, 5000);
 }
 
-// Inicializar aplicação
 document.addEventListener('DOMContentLoaded', () => {
     listarProdutos();
 });
